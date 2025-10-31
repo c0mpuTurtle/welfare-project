@@ -1,5 +1,7 @@
-package greenProject.demo.db;
+package greenProject.demo.db.entity;
 
+import greenProject.demo.db.BaseTime;
+import greenProject.demo.enums.Category;
 import greenProject.demo.enums.District;
 import greenProject.demo.enums.Organization;
 import jakarta.persistence.*;
@@ -23,7 +25,9 @@ public class Welfare extends BaseTime {
     @Column(name = "name", length = 50, nullable = false)
     private String name;
 
-
+    @Enumerated(EnumType.STRING)
+    @Column(name= "category", length = 20)
+    private Category category;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "organization", length = 20, nullable = false)
@@ -48,10 +52,11 @@ public class Welfare extends BaseTime {
     @Column(name = "link", columnDefinition = "text")
     private String link;
 
-    public Welfare(String name, Organization organization, District district, String summary,
+    public Welfare(String name, Category category,Organization organization, District district, String summary,
                    LocalDateTime startTime, LocalDateTime endTime,
                    String extraDescription, String link) {
         this.name = name;
+        this.category = category;
         this.organization = organization;
         this.district = district;
         this.summary = summary;
