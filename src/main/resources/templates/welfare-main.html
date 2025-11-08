@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>서울시 20대 복지 안내</title>
+    <link href="https://cdn.jsdelivr.net/npm/suitcss@0.0.1/dist/suit.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/welfare-main.css}">
+</head>
+
+<body>
+<header>
+    <div class="header-title">
+        <span class="icon">💡</span>
+        <span>서울시 20대 복지 안내</span>
+    </div>
+</header>
+
+<main>
+    <div class="card">
+        <h2>사회초년생을 위한 복지 패키지</h2>
+        <p>관심 있는 분야를 선택해 자세한 복지 정보를 확인하세요.</p>
+
+        <div class="button-group">
+            <a th:href="@{/support/savings}">
+                <div class="icon">💰</div>
+                <span>도약 계좌</span>
+            </a>
+            <a th:href="@{/support/scholarship}">
+                <div class="icon">🎓</div>
+                <span>장학금</span>
+            </a>
+            <a th:href="@{/support/loan}">
+                <div class="icon">🏦</div>
+                <span>대출</span>
+            </a>
+            <a th:href="@{/support/housing}">
+                <div class="icon">🏠</div>
+                <span>주거</span>
+            </a>
+            <a th:href="@{/support/transport}">
+                <div class="icon">🚌</div>
+                <span>교통</span>
+            </a>
+            <a th:href="@{/support/work}">
+                <div class="icon">💼</div>
+                <span>근로</span>
+            </a>
+            <a th:href="@{/support/mental}">
+                <div class="icon">💆‍♀️</div>
+                <span>정신건강</span>
+            </a>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
