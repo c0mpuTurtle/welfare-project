@@ -47,16 +47,20 @@ public class Welfare extends BaseTime {
     @Column(name = "end_time")
     private LocalDateTime endTime;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "support_cycle")
     private SupportCycle supportCycle;
 
     @Column(name = "extra_description", columnDefinition = "text")
     private String extraDescription;
 
-    @Column(name = "link", columnDefinition = "text")
-    private String link;
+    @Column(name = "bokijro_link", columnDefinition = "text")
+    private String bokjiro_link;
 
-    public Welfare(Long id, String name, Category category, Organization organization, District district, String summary, LocalDateTime startTime, LocalDateTime endTime, SupportCycle supportCycle, String extraDescription, String link) {
+    @Column(name = "support_link", columnDefinition = "text")
+    private String support_link;
+
+    public Welfare(Long id, String name, Category category, Organization organization, District district, String summary, LocalDateTime startTime, LocalDateTime endTime, SupportCycle supportCycle, String extraDescription, String bokjiro_link, String support_link) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -67,6 +71,7 @@ public class Welfare extends BaseTime {
         this.endTime = endTime;
         this.supportCycle = supportCycle;
         this.extraDescription = extraDescription;
-        this.link = link;
+        this.bokjiro_link = bokjiro_link;
+        this.support_link = support_link;
     }
 }
