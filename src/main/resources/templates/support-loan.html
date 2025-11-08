@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>대출 복지 목록</title>
+    <link rel="stylesheet" th:href="@{/css/support-common.css}">
+</head>
+
+<body>
+<header>
+    <div class="header-title">
+        <span class="icon">🏦</span>
+        <span>대출 복지 목록</span>
+    </div>
+    <a href="javascript:history.back()" class="back-btn">← 메인으로</a>
+</header>
+
+<main>
+    <!-- groupedLoans: { "학자금 대출"=[...], "주거 대출"=[...], "기타"=[...] } -->
+    <div th:each="entry : ${groupedLoans}">
+        <h2 class="sub-title" th:text="${entry.key}"></h2>
+
+        <div class="list-container">
+            <div th:each="welfare : ${entry.value}" class="card">
+                <div class="card-header">
+                    <h3 th:text="${welfare.name}"></h3>
+                    <p class="summary" th:text="${welfare.summary}"></p>
+                    <div class="link-group">
+                        <a th:href="${welfare.bokjiro_link}" target="_blank">복지로</a>
+                        <a th:href="${welfare.support_link}" target="_blank">신청</a>
+                    </div>
+                </div>
+
+                <div class="card-detail">
+                    <p th:text="'시작일: ' + (${welfare.startTime} != null ? ${#temporals.format(welfare.startTime, 'yyyy-MM-dd')} : '미정')"></p>
+                    <p th:text="'종료일: ' + (${welfare.endTime} != null ? ${#temporals.format(welfare.endTime, 'yyyy-MM-dd')} : '미정')"></p>
+                    <p class="extra" th:text="${welfare.extraDescription}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
